@@ -1,4 +1,16 @@
 apply plugin : "java"
+repositories
+{
+mavenCentral()
+//this method is defined in gradle , ivy is also supported 
+//additionally mavenLocal() is also defined
+}
+
+dependencies {
+compile "org.apache.commons:commons-lang3:3.3.2"
+}
+
+
 //when we apply plugin and run tasks or build it will do actions relevant to java 
 sourceSets
 {
