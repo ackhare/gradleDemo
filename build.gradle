@@ -5,3 +5,9 @@ sourceSets
 main.java.srcDir "src/main"
 }
 //without sourcesets we will not be able to get the class directory and some other directories like dependency-cache
+
+//jar task in gradle 
+jar{
+
+manifest.attributes "Main-Class" : "com.chetan.gradleDemo.MainApp"
+}
