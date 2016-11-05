@@ -1,0 +1,7 @@
+apply plugin : "java"
+//when we apply plugin and run tasks or build it will do actions relevant to java 
+sourceSets
+{
+main.java.srcDir "src/main"
+}
+//without sourcesets we will not be able to get the class directory and some other directories like dependency-cache
