@@ -50,6 +50,12 @@ class GreetingTask extends DefaultTask {
 }
 
 
+task runJar(type:Exec, dependsOn:jar) {
+executable 'java'
+args  '-jar' , "$jar.archivePath" , "Hello World"
+}
+
+
 //when we apply plugin and run tasks or build it will do actions relevant to java 
 sourceSets
 {
