@@ -61,9 +61,30 @@ task run(type:JavaExec, dependsOn:classes) {
 main 'com.chetan.gradleDemo.MainApp'
 classpath sourceSets.main.runtimeClasspath
 args  'Hello world'
-
-
 }
+
+
+
+task hello2 {
+onlyIf{true}
+} << {
+//this is  doLast
+println 'hello'
+}
+
+hello2.enabled=false
+
+
+task writeGreeting
+
+
+writeGreeting {
+outputs.file file('greetings.txt')
+}
+writeGreeting.doLast { file('greeting.txt').text = "Hello man" }
+
+
+
 
 //when we apply plugin and run tasks or build it will do actions relevant to java 
 sourceSets
