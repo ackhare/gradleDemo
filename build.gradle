@@ -49,12 +49,21 @@ class GreetingTask extends DefaultTask {
     }
 }
 
-
+/*
 task runJar(type:Exec, dependsOn:jar) {
 executable 'java'
 args  '-jar' , "$jar.archivePath" , "Hello World"
 }
+*/
 
+
+task run(type:JavaExec, dependsOn:classes) {
+main 'com.chetan.gradleDemo.MainApp'
+classpath sourceSets.main.runtimeClasspath
+args  'Hello world'
+
+
+}
 
 //when we apply plugin and run tasks or build it will do actions relevant to java 
 sourceSets
