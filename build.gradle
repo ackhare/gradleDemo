@@ -6,8 +6,14 @@ mavenCentral()
 //additionally mavenLocal() is also defined
 }
 
+configurations
+{
+myConfig
+}
+
 dependencies {
 compile "org.apache.commons:commons-lang3:3.3.2"
+myConfig "org.apache.commons:commons-lang3:3.3.2"
 }
 
 
@@ -20,6 +26,10 @@ main.java.srcDir "src/main"
 
 //jar task in gradle 
 jar{
-
+//In a from we give acollecvtion of file and compile is a configuration which means collection of files and as compile is a configuration 
+//we give it like this 
+//collect is from groovy
+//from configurations.compile.collect{entry -> zipTree entry}
+from configurations.myConfig.collect{entry -> zipTree entry}
 manifest.attributes "Main-Class" : "com.chetan.gradleDemo.MainApp"
 }
